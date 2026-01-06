@@ -1,6 +1,8 @@
-# vprofile-project
+# Containerization of Java Project Using Docker
 
-A Java web application project used for practical DevOps training.
+This project is a fork of the original repository by **[hkhcoder](https://github.com/hkhcoder/vprofile-project)**.  
+I have worked on the **Dockerization** and DevOps part of the project.
+
 
 ---
 
