@@ -45,7 +45,6 @@ The project uses:
 - MySQL
 - Memcached
 - RabbitMQ
-- Elasticsearch
 
 ---
 
