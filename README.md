@@ -1,10 +1,39 @@
-# Prerequisites
-#
+# vprofile-project
+
+A Java web application project used for practical DevOps training.
+
+---
+
+## 🐳 Docker & DevOps Work
+
+> 🚀 **DevOps Project**  
+> The Dockerization of this application is available in the **`containers` branch**.
+
+Please switch to the `containers` branch to see:
+- Dockerfile (multi-stage build)
+- docker-compose configuration
+- MySQL container
+- Docker-focused documentation
+
+Dockerization and DevOps implementation by **Mohamed Ben Ammar**  
+(original application provided as part of a DevOps training project)
+
+---
+
+## Prerequisites
+
+Before running the project locally, make sure you have:
+
 - JDK 17 or 21
 - Maven 3.9
 - MySQL 8
 
-# Technologies 
+---
+
+## Technologies
+
+The project uses:
+
 - Spring MVC
 - Spring Security
 - Spring Data JPA
@@ -13,13 +42,13 @@
 - Tomcat
 - MySQL
 - Memcached
-- Rabbitmq
-- ElasticSearch
-# Database
-Here,we used Mysql DB 
-sql dump file:
-- /src/main/resources/db_backup.sql
-- db_backup.sql file is a mysql dump file.we have to import this dump to mysql db server
-- > mysql -u <user_name> -p accounts < db_backup.sql
+- RabbitMQ
+- Elasticsearch
+
+---
+
+## Database Setup
+
+We used a MySQL database dump file located at:
 
 
