@@ -1,103 +1,126 @@
-Containerization of Java Project Using Docker
+# 🚀 Containerization of a Java Enterprise Application (DevOps Project)
 
-Containerization of Java Project Using Docker is a fork of vprofile-project
- by hkhcoder.
-I have forked the original project and switched to the branch containers where I implemented full Dockerization of the application, including:
+This repository showcases a **real-world DevOps containerization project** where a **multi-service Java enterprise application** has been fully dockerized and orchestrated using **Docker and Docker Compose**.
 
-Dockerfiles for each service (App, DB, Web)
+> 🔹 This project is a **fork** of the original application  
+> **vprofile-project** by **hkhcoder**  
+> 🔹 All DevOps and Docker work has been implemented by **Ben Ammar** in the **`containers` branch**
 
-Multi-stage Java build
+---
 
-Docker Compose  for MySQL, Memcached, RabbitMQ, Tomcat, and Nginx
+## 🎯 Project Objective
 
-This README focuses on my containerization work, highlighting my DevOps and Docker skills.
+The primary objective of this project is to demonstrate **hands-on DevOps skills** by:
 
-🔧 Original Application & Containerization Work
+- Transforming a traditional Java application into a **containerized architecture**
+- Ensuring **service isolation, scalability, and consistency**
+- Applying **Docker best practices** used in production environments
+- Delivering a **reproducible and portable deployment**
 
-Before containerizing, the original application was built and validated locally to:
+---
 
-Identify required services
+## 🧠 DevOps Approach
 
-Validate compatible versions
+Before containerization, the application was **built and tested locally** to:
 
-Select accurate Docker base images
+- Analyze application dependencies
+- Identify required backend services
+- Validate version compatibility
+- Prevent runtime and configuration issues
+- Select optimal Docker base images
 
-Avoid runtime and dependency conflicts
+This mirrors **real DevOps workflows** used in enterprise environments.
 
-✅ Validated Local Stack (from original project)
-Component	Version
-Database	MySQL 8.0.33
-Cache Service	Memcached 1.6
-Message Broker	RabbitMQ 4.0
-Java Development Kit	JDK 21
-Build Tool	Maven 3.9.9
-Application Server	Tomcat 10 (JDK 21)
-Web Server	Nginx 1.27
-🐳 Dockerization Work (by Me, Ben Ammar)
+---
 
-Built Dockerfiles for all services: App, DB, and Nginx reverse proxy
+## 🏗 Application Stack
 
-Implemented multi-stage Java build to optimize image size
+| Layer | Technology |
+|-----|-----------|
+| **Frontend** | Nginx |
+| **Application** | Java 21 / Tomcat 10 |
+| **Database** | MySQL 8.0.33 |
+| **Cache** | Memcached |
+| **Message Broker** | RabbitMQ |
+| **Build Tool** | Maven 3.9.9 |
+| **Containerization** | Docker |
+| **Orchestration** | Docker Compose |
 
-Created docker-compose.yml to orchestrate all services
+---
 
-Configured persistent volumes for MySQL and Tomcat
+## 🐳 Containerization & Automation (My Work)
 
-Ensured environment parity with original project
+Implemented entirely by **Ben Ammar**:
 
-🏗 Project Architecture
-Service	Image / Build	Ports	Description
-vprodb	mohamedbenammar/vprofiledb	3306:3306	MySQL database initialized with dump
-vprocache01	memcached:latest	11211:11211	In-memory caching service
-vpromq01	rabbitmq:latest	5672:5672	Message broker for asynchronous tasks
-vproapp	mohamedbenammar/vprofileapp	8080:8080	Java application deployed on Tomcat
-vproweb	mohamedbenammar/vprofileweb	80:80	Nginx reverse proxy exposing the application
-⚡ Running the Containerized Project
+- ✅ Dockerfiles for each service (App, DB, Web)
+- ✅ **Multi-stage Docker builds** for optimized Java images
+- ✅ Centralized orchestration with `docker-compose.yml`
+- ✅ Persistent volumes for data integrity
+- ✅ Clean separation of concerns between services
+- ✅ Environment parity with on-prem / cloud deployments
+
+---
+
+## 🏛 Architecture Overview
+
+| Service | Image | Ports | Purpose |
+|-------|------|------|--------|
+| **vprodb** | mohamedbenammar/vprofiledb | 3306 | MySQL database |
+| **vprocache01** | memcached:latest | 11211 | In-memory cache |
+| **vpromq01** | rabbitmq:latest | 5672 | Message broker |
+| **vproapp** | mohamedbenammar/vprofileapp | 8080 | Java application |
+| **vproweb** | mohamedbenammar/vprofileweb | 80 | Nginx reverse proxy |
+
+---
+
+## ⚡ Quick Start (Production-Like Deployment)
+
+```bash
 docker-compose up -d --build
-docker ps
 
+## ⚡ Verify running containers:
+        docker ps
 
-Access the application:
+🌐 Service Access
 
-Browser: http://<server-IP>/
+        Application URL
+        http://localhost/
 
-Tomcat backend: http://<server-IP>:8080
+        Tomcat Backend
+        http://localhost:8080
 
-MySQL: localhost:3306 (via SQL client)
+        MySQL Database
+        localhost:3306
 
-🔧 Cleanup & Maintenance
-docker-compose down -v
-docker system prune -af
+🔄 Lifecycle Management
 
+Stop and clean the environment:
 
-For small instances (EC2 <2GB RAM), add swap:
+        docker-compose down -v
+        docker system prune -af
 
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+⭐ Key DevOps Highlights
 
-💡 Key Highlights (My Work)
+        End-to-end containerization of a legacy Java application
+        Docker multi-stage builds for performance optimization
+        Reverse proxy implementation with Nginx
+        Stateful services managed with Docker volumes
+        Production-ready Docker Compose architecture
+        Infrastructure stability and resource optimization
 
-Dockerization and orchestration of multi-service Java application
+📈 DevOps Skills Demonstrated
 
-Multi-stage build for Java and optimized Docker images
+        Docker & Docker Compose
+        Java / Maven / Tomcat
+        Nginx reverse proxy
+        MySQL / Memcached / RabbitMQ
+        Multi-container orchestration
+        Infrastructure automation
+        DevOps best practices
 
-Nginx reverse proxy setup
+👤 Author & DevOps Engineer
 
-Persistent volumes for database and web apps
+Ben Ammar Mohamed
+DevOps Engineer | Docker | Kubernetes | Cloud Enthusiast
 
-Resource optimization and stability
-
-📈 Skills Demonstrated
-
-Docker & Docker Compose
-
-Java / Maven / Tomcat
-
-MySQL / Memcached / RabbitMQ
-
-Nginx configuration
-
-Multi-container orchestration and DevOps best practices
+        This project is part of my DevOps portfolio and demonstrates my ability to design, containerize, and manage production-ready systems.
